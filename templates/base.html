@@ -2,21 +2,35 @@
 <html>
 
   <head>
+    
 
     <meta>
     <meta>
     <title>
       {% block title %}{% endblock %}
+
     </title>
 
   </head>
 
   <body>
 
-    <p>
-    </p>
-    
-    {% block body %}{% endblock %}
+    <!-- {% block messages %}
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+    {% endblock %} -->
+
+  {% block body %}
+  {% endblock %}
+
   </body>
   
 </html>

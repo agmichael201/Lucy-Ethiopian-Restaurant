@@ -10,17 +10,8 @@ class Admin(db.Model):
     admin_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     fname = db.Column(db.String(20), nullable=False)
     lname = db.Column(db.String(20), nullable=False)
-    email = db.Column(db.String(20), nullable=False) 
+    email = db.Column(db.String(50), nullable=False) 
     password = db.Column(db.String(20), nullable=False)
-
-class Menu(db.Model):
-    """menu"""
-
-    __tablename__ = "menus"
-
-    menu_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    menu_name = db.Column(db.String(20), nullable=False)
-    menu_change_description  = db.Column(db.String(200), nullable=False)
 
 
 class Menu_Items(db.Model):
@@ -29,12 +20,41 @@ class Menu_Items(db.Model):
     __tablename__ = "menu_items" 
 
     item_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    item_name = db.Column(db.String(20), nullable=False)
+    item_name = db.Column(db.String(50), nullable=False)
     item_description = db.Column(db.String(200)) 
     #item_pic = db.Column('img-url') 
     item_price = db.Column(db.Float,nullable=False)
     item_category = db.Column(db.String, nullable=True) 
-    menu_id = db.Column(db.Integer, db.ForeignKey("menus.menu_id"))
+
+
+class Customer(db.Model):
+    """customers"""
+    __tablename__ = "customers"
+
+    customer_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    fname = db.Column(db.String(20), nullable=False, default="guest")
+    lname = db.Column(db.String(20), nullable=False, default="guest")
+    email = db.Column(db.String(20), nullable=True)
+    password = db.Column(db.String(20), nullable=True)
+
+
+class Order(db.Model):
+    """online orders for pickup"""
+    __tablename__ = "orders"
+
+    order_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    customer_id = db.Column(db.Integer, db.ForeignKey("customers.customer_id"))
+    date_requested = db.Column(db.DateTime)
+    total = db.Column(db.Float)
+    method = db.Column(db.String(20))
+
+
+class MenuOrder(db.Model):
+    """"menu_item orders"""
+    __tablename__ = "menu_orders"
+
+    order_id = db.Column(db.Integer,db.ForeignKey("orders.order_id"), primary_key=True)
+    menu_item_id = db.Column(db.Integer, db.ForeignKey("menu_items.item_id"))
 
 
 

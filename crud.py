@@ -1,4 +1,4 @@
-from model import db, Admin, Menu, Menu_Items, connect_to_db
+from model import db, Admin, Menu_Items, Order, Customer, MenuOrder, connect_to_db
 
 
 
@@ -21,7 +21,7 @@ def get_admins():
 def get_admin_by_email(email):
     """Return an admin by email."""
 
-    return Admin.query.filter(Admin.email == email)
+    return Admin.query.filter(Admin.email == email).first()
 
 
 def update_admin_name():
@@ -29,7 +29,10 @@ def update_admin_name():
 
 
 
-"""MENU_ITEMS_FUNCTION"""
+
+
+
+"""MENU_ITEMS_FUNCTIONS"""
 
 def get_menu_items():
     """"Return all menu items."""
@@ -85,23 +88,72 @@ def update_menu_item_category(item_id, new_category):
 
 
 
-"""MENU FUNCTIONS"""
+"""ORDERS FUNCTION"""
 
-def create_menu(menu_name, menu_change_description):
-    """Create a menu."""
+def get_orders():
+    """Show all online orders"""
 
-    menu = Menu( 
-        menu_name=menu_name,
-        menu_change_description=menu_change_description,
-    )
-
-    return menu
+    return Order.query.all() 
 
 
-def get_menus():
-    """Return all menus."""
+def get_order_by_order_id(order_id):
+    """get an order by order_id"""
 
-    return Menu.query.all()
+    return Order.query.get(order_id) 
+
+
+def create_order(customer_id, date_requested, total, method):
+    """create online order"""
+ 
+    order = Order(customer_id=customer_id, date_requested=date_requested, total=total, method=method)
+
+    return order
+
+def get_order_by_customer_id(customer_id):
+    """Return list of orders by customer_id"""
+
+    orders = [Order.query.filter_by(customer_id)]
+
+    return orders
+
+
+
+
+
+"""CUSTOMERS FUNCTIONS"""
+
+def get_customers():
+    """Return all customers"""
+
+    return Customer.query.all() 
+
+
+def get_customer_by_id(customer_id):
+    """Return customer by customer_id"""
+
+    return Customer.query.get(customer_id)
+
+
+def get_customer_by_email(email):
+    """Return customer by email"""
+
+    return Customer.query.filter(Customer.email == email).first()
+
+
+
+
+"""MENU_ORDERS FUNCTIONS"""
+
+def get_menu_orders():
+    """"Return all menu_item orders"""
+
+    return MenuOrder.query.all()
+
+
+def get_menu_order_by_order_id(order_id):
+    """Return list of menu_orders by order_id"""
+
+    return [MenuOrder.query.filter_by(order_id)]
 
 
 
