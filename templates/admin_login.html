@@ -8,17 +8,34 @@
 
 <form action ="/admin_login" method="POST">
     <p>
-        Email <input type="text" name="email">
+        Email <input type="text" name="email2">
     </p>
 
     <p>
-        Password <input type="password" name="password">
+        Password <input type="password" name="password2" id="password2">
+
+        <label for="show-password-option">show password
+            <input type="checkbox" id="show-password-option2">
+        </label>
     </p>
 
     <p>
         <input type="submit">
     </p>
 </form>
+
+<script>
+    const password = document.getElementById("password2")
+    const showPasswordOption = document.getElementById("show-password-option2")
+
+    showPasswordOption.addEventListener("click", function() {
+        if (password.type === "password") {
+            password.type = "text";
+        } else {
+            password.type = "password"
+        }
+    });
+</script>
 {% endblock %}
 
 

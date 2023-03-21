@@ -20,7 +20,7 @@ def get_admins():
 
 def get_admin_by_email(email):
     """Return an admin by email."""
-
+    print(email)
     return Admin.query.filter(Admin.email == email).first()
 
 

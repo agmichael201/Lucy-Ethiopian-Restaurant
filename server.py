@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, session, get_flashed_messages
+from flask import Flask, render_template, request, flash, session, redirect, get_flashed_messages
 from model import connect_to_db, db
 import crud
 
@@ -44,7 +44,7 @@ def create_admin_account():
     admin_pin = request.form.get("admin_pin")
 
     if not fname or not lname or not email or not password or not admin_pin:
-        flash("All fields are required.")
+        flash("Please fill in all boxes.")
 
         return render_template("create_admin.html", messages=get_flashed_messages())
     
@@ -59,7 +59,7 @@ def create_admin_account():
         return render_template("admin_login.html")
     
 
-    admin = crud.create_admin(fname=request.form.get("fname"), lname=request.form.get("lname"), email=email, password=request.form.get("password"))
+    admin = crud.create_admin(fname=fname, lname=lname, email=email, password=password)
     db.session.add(admin)
     db.session.commit()
     flash('Your new admin account has been created! Try logging in now.')
@@ -71,8 +71,8 @@ def create_admin_account():
 
 @app.route("/admin_login", methods=['GET', 'POST'])
 def login():
-    email = request.form.get('email')
-    password = request.form.get('password')
+    email = request.form.get('email2')
+    password = request.form.get('password2')
 
     admin = crud.get_admin_by_email(email)
     if admin is None:
@@ -84,10 +84,27 @@ def login():
     else:
         session['admin_email'] = admin.email
         flash(f"Welcome back, {admin.fname}!")
-        return render_template("admin_user.html", messages=get_flashed_messages())
+        return redirect("/admin_user")
 
+
+@app.route("/admin_user", methods=['GET', 'POST'])
+def edit_menu():
+    item_categories = ["Appetizer", "Vegetarian", "Beef", "Lamb", "Chicken", "Drinks" ]
+
+    all_items = {}
+
+    for item_cat in item_categories:
+        all_items[item_cat] = crud.get_menu_items_by_category(item_cat) 
+
+    print(all_items)
+    return render_template("admin_user.html", all_items=all_items )
+
+# @app.route("/edit_item?", methods=['GET', 'POST'])
+# def edit_menu_item():
 
     
+
+# @app.route("/create_item", methods=['GET', 'POST'])
 
 
 if __name__ == "__main__":

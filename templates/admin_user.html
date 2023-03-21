@@ -1,12 +1,27 @@
 {% extends 'base.html' %}
 
-{% block title %} {% endblock %}
+{% block title %} Welcome {% endblock %}
+
+
 
 
 {% block body %}
 
-<h2>Welcome </h2>
 
 
+<h2>Menu</h2>
+    <p>
+        <a href="/create_item">Create New Item</a>
+    </p>
+
+{% for category,category_items in all_items.items() %}
+  <h1>{{ category }}</h1>
+     {% for menu_item in category_items %}
+      <h2>{{ menu_item.item_name }}</h2>
+        <p>{{ menu_item.item_description }}</p>
+        <p>{{ menu_item.item_price}}</p>
+        <a href="/edit_item?id={{ menu_item.item_id }}">Edit</a>
+      {% endfor %}
+{% endfor %}
 
 {% endblock %}
