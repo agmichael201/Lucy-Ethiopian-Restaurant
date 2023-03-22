@@ -73,6 +73,7 @@ def create_admin_account():
 def login():
     email = request.form.get('email2')
     password = request.form.get('password2')
+    print([email])
 
     admin = crud.get_admin_by_email(email)
     if admin is None:
@@ -88,16 +89,29 @@ def login():
 
 
 @app.route("/admin_user", methods=['GET', 'POST'])
-def edit_menu():
-    item_categories = ["Appetizer", "Vegetarian", "Beef", "Lamb", "Chicken", "Drinks" ]
+def admin_user():
+    email = session.get('admin_email')
+    admin = crud.get_admin_by_email(email)
 
-    all_items = {}
+    if admin:
+        item_categories = ["Appetizer", "Vegetarian", "Beef", "Lamb", "Chicken", "Drinks" ]
 
-    for item_cat in item_categories:
-        all_items[item_cat] = crud.get_menu_items_by_category(item_cat) 
+        all_items = {}
 
-    print(all_items)
-    return render_template("admin_user.html", all_items=all_items )
+        for item_cat in item_categories:
+            all_items[item_cat] = crud.get_menu_items_by_category(item_cat) 
+
+        return render_template("admin_user.html", admin=admin, all_items=all_items)
+    else:
+        flash("Please log in as admin to access this page.")
+        return redirect("/admin_login")
+
+
+@app.route("/admin_logout")
+def admin_logout():
+    session.clear()
+    flash("You have been logged out.")
+    return redirect ("admin_login")
 
 # @app.route("/edit_item?", methods=['GET', 'POST'])
 # def edit_menu_item():

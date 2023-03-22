@@ -2,19 +2,39 @@
 <html>
 
   <head>
-    
 
     <meta>
     <meta>
-    <title>
-      {% block title %}{% endblock %}
-
-    </title>
+    <title>{% block title %}Lucy Ethiopian Restaurant{% endblock %}</title>
 
   </head>
 
   <body>
 
+
+      <header>
+        {% block navbar %}
+          <nav class="navbar navbar-inverse navbar-fixed-top">
+              <div class="container-fluid">
+              <div class="navbar-header">
+                  <a class="navbar-brand" href="#"></a>
+              </div>
+              <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Menu</a></li>
+                  <li><a href="#">Order Online</a></li>
+                  <li><a href="#">Contact Us</a></li>
+              </ul>
+              </div>
+          </nav>
+        {% endblock %}
+      </header>
+
+      <main>
+      {% block body %}{% endblock %}
+      </main>
+
+
+  </body>
     <!-- {% block messages %}
 
       {% with messages = get_flashed_messages() %}
@@ -28,9 +48,5 @@
       {% endwith %}
     {% endblock %} -->
 
-  {% block body %}
-  {% endblock %}
-
-  </body>
   
 </html>

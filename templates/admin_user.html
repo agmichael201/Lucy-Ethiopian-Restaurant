@@ -1,27 +1,30 @@
 {% extends 'base.html' %}
 
 {% block title %} Welcome {% endblock %}
-
+{% block navbar %}{% endblock %}
 
 
 
 {% block body %}
-
-
+  {% if admin %}
+    <h1>Hi {{ admin.fname }}</h1>
+  {% endif %}
+  
+  <a href="/admin_logout">Logout</a>
 
 <h2>Menu</h2>
     <p>
         <a href="/create_item">Create New Item</a>
     </p>
 
-{% for category,category_items in all_items.items() %}
-  <h1>{{ category }}</h1>
-     {% for menu_item in category_items %}
-      <h2>{{ menu_item.item_name }}</h2>
-        <p>{{ menu_item.item_description }}</p>
-        <p>{{ menu_item.item_price}}</p>
-        <a href="/edit_item?id={{ menu_item.item_id }}">Edit</a>
-      {% endfor %}
-{% endfor %}
+  {% for category,category_items in all_items.items() %}
+    <h3>{{ category }}</h3>
+      {% for menu_item in category_items %}
+        <h4>{{ menu_item.item_name }}</h4>
+          <p>{{ menu_item.item_description }}</p>
+          <p>{{ menu_item.item_price}}</p>
+          <a href="/edit_item?id={{ menu_item.item_id }}">Edit</a>
+        {% endfor %}
+  {% endfor %}
 
 {% endblock %}
