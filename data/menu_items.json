@@ -3,66 +3,77 @@
         "item_name": "Ayib Bemitmita", 
         "item_description": "Homemade cottage cheese mixed with traditional chili powder(mitmita), cardamom, and spiced butter.",
         "item_price": 6.99,
-        "item_category": "Appetizer"
+        "item_category": "Appetizer",
+        "item_time": 15
     },
     {
         "item_name": "Salad",
         "item_description": "Lettuce, tomato, onion, and jalapeño peppers with dressing.",
         "item_price": 6.99,
-        "item_category": "Appetizer"  
+        "item_category": "Appetizer",
+        "item_time": 15
     },
     {
         "item_name": "Veggie Sambusa",
         "item_description": "Fresh pastry shell filled with whole lentils, onion, and chopped jalapeño peppers",
         "item_price": 3.00,
-        "item_category": "Appetizer" 
+        "item_category": "Appetizer",
+        "item_time": 15 
     },
     {
         "item_name": "Ater Wot", 
         "item_description": "Yellow split peas cooked with onion, garlic, tomato sauce, and ginger. Served with a side salad.",
         "item_price": 15.99,
-        "item_category": "Vegetarian" 
+        "item_category": "Vegetarian",
+        "item_time": 15  
     },
     {
         "item_name": "Gomen",
         "item_description": "Spinach and collard greens cooked in onion, garlic, ginger, and cardamom. Served with a side salad.",
         "item_price": 15.99,
-        "item_category": "Vegetarian" 
+        "item_category": "Vegetarian",
+        "item_time": 15  
     },
     {
         "item_name": "Potato",
         "item_description": "Chopped potatoes cooked with onion, carrots, garlic, turmeric, and ginger. Served with a side salad.",
         "item_price": 14.99,
-        "item_category": "Vegetarian"  
+        "item_category": "Vegetarian",
+        "item_time": 15   
     },
     {
         "item_name": "Vegetarian Combination",
         "item_description": "A combination of all veggie entrees (excluding Shiro and Veggie Firfir). Served with a side salad.",
         "item_price": 16.99,
-        "item_category": "Vegetarian" 
+        "item_category": "Vegetarian",
+        "item_time": 15  
     },
     {
         "item_name": "Pasta",
         "item_description": "Spaghetti or macaroni served with homemade spicy tomato sauce. Meat sauce: +$2.00.",
         "item_price": 14.99,
-        "item_category": "Vegetarian"
+        "item_category": "Vegetarian",
+        "item_time": 15 
     },
     {
         "item_name": "Shiro",
         "item_description": "Chickpea powder cooked with traditional spices, onion, garlic, tomato sauce, and ginger. Served with a side salad.",
         "item_price": 15.99,
-        "item_category": "Vegetarian"  
+        "item_category": "Vegetarian",
+        "item_time": 15  
     },
     {
         "item_name": "Yemisir Wot Alicha",
         "item_description": "Split red lentils cooked with onion, garlic, ginger, and turmeric. Served with a side salad",
         "item_price": 14.99,
-        "item_category": "Vegetarian"
+        "item_category": "Vegetarian",
+        "item_time": 15 
     },
     {
         "item_name": "Fish and Rice",
         "item_description": "Pan-fried tilapia fillet with a side of seasoned rice. Served with a side.",
         "item_price": 14.99,
-        "item_category": "Vegetarian" 
+        "item_category": "Vegetarian",
+        "item_time": 15  
     }
 ]

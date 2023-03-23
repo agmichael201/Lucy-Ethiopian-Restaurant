@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Welcome {% endblock %}
+{% block navbar %}{% endblock %}
+
+{% block body %} 
+
+<h2> Add new items to you menu </h2>
+
+<form action="/create_item" method="POST">
+    <p>
+        Item Category:
+        <select name="item-category-box">
+            <option value="Appetizer">Appetizer</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Beef">Beef</option>
+            <option value="Lamb">Lamb</option>
+            <option value="Chicken">Chicken</option>
+            <option value="Drinks">Drinks</option>
+        </select>
+    </p>
+    <p>
+        Menu Item Name: <input type="text" name="item_name_box">
+    </p>
+    <p>
+        Menu Item Description: <input type="text" name="item-description-box">
+    </p>
+    <p>
+        Menu Item Price: <input type="text" name="item-price-box">
+    </p>
+    <p>
+        Menu Item Time: <input type="number" name="item-time-box">
+    </p>
+    <p>
+        Add your new menu item! <input type="submit" value="create item">
+    </p>
+
+
+</form>
+

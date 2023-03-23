@@ -44,11 +44,16 @@ def get_menu_items_by_category(item_category):
 
     return Menu_Items.query.filter_by(item_category=item_category).all()
 
+def get_menu_item_by_name(item_name):
+    """Return menu item by name"""
 
-def create_menu_item(item_name, item_description, item_price, item_category):
+    item_name = Menu_Items.query.filter(Menu_Items.item_name == item_name).first()
+
+
+def create_menu_item(item_name, item_description, item_price, item_category, item_time):
     """Create a new menu item"""
 
-    menu_item = Menu_Items(item_name=item_name, item_description=item_description, item_price=item_price, item_category=item_category)
+    menu_item = Menu_Items(item_name=item_name, item_description=item_description, item_price=item_price, item_category=item_category, item_time=item_time)
 
     return menu_item
 
@@ -84,6 +89,12 @@ def update_menu_item_category(item_id, new_category):
     item = Menu_Items.query.get(item_id)
     item.item_category = new_category
 
+
+def update_menu_item_time(item_id, new_time):
+    """Update menu item category."""
+
+    item = Menu_Items.query.get(item_id)
+    item.item_time = new_time
 
 
 

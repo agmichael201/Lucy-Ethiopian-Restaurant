@@ -26,8 +26,9 @@ with open('data/menu_items.json') as menu_items_data:
       #item_pic = menu_item["item_pic"]
       item_price = menu_item["item_price"]
       item_category = menu_item["item_category"]
+      item_time = menu_item["item_time"]
 
-      db_menu_item = crud.create_menu_item(item_name, item_description, item_price, item_category)
+      db_menu_item = crud.create_menu_item(item_name, item_description, item_price, item_category, item_time)
       db.session.add(db_menu_item)
 
 db.session.commit()

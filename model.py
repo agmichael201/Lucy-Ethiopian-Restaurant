@@ -25,6 +25,7 @@ class Menu_Items(db.Model):
     #item_pic = db.Column('img-url') 
     item_price = db.Column(db.Float,nullable=False)
     item_category = db.Column(db.String, nullable=True) 
+    item_time = db.Column(db.Integer, nullable=False)
 
 
 class Customer(db.Model):

@@ -84,7 +84,7 @@ def login():
         return render_template("admin_login.html", messages=get_flashed_messages())
     else:
         session['admin_email'] = admin.email
-        flash(f"Welcome back, {admin.fname}!")
+        flash(f"Welcome, {admin.fname}!")
         return redirect("/admin_user")
 
 
@@ -111,14 +111,33 @@ def admin_user():
 def admin_logout():
     session.clear()
     flash("You have been logged out.")
-    return redirect ("admin_login")
+    return redirect ("/admin_login")
 
-# @app.route("/edit_item?", methods=['GET', 'POST'])
-# def edit_menu_item():
 
     
 
-# @app.route("/create_item", methods=['GET', 'POST'])
+@app.route("/create_item", methods=['GET', 'POST'])
+def create_item():
+    item_name = request.form.get("item-name-box")
+    item_description = request.form.get("item-description-box")
+    item_price = request.form.get("item-price-box")
+    item_category = request.form.get("item-category-box")
+    item_time = request.form.get("item-time-box")
+
+    if not item_name or not item_description or not item_price or not item_category or not item_time:
+        flash("Please fill in all boxes.")
+        return render_template("create_item.html")
+    
+    else: 
+        menu_item = crud.create_menu_item(item_name=item_name, item_description=item_description, item_price=item_price, item_category=item_category, item_time=item_time)
+        db.session.add(menu_item)
+        db.session.commit()
+        flash('Your menu item has been added!')
+        return redirect ("/admin_user")
+        
+
+
+
 
 
 if __name__ == "__main__":
