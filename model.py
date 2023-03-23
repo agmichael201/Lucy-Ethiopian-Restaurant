@@ -21,7 +21,7 @@ class Menu_Items(db.Model):
 
     item_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     item_name = db.Column(db.String(50), nullable=False)
-    item_description = db.Column(db.String(200)) 
+    item_description = db.Column(db.String(200), nullable=True) 
     #item_pic = db.Column('img-url') 
     item_price = db.Column(db.Float,nullable=False)
     item_category = db.Column(db.String, nullable=True) 

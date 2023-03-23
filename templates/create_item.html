@@ -5,7 +5,7 @@
 
 {% block body %} 
 
-<h2> Add new items to you menu </h2>
+<h2> Add new items to your menu </h2>
 
 <form action="/create_item" method="POST">
     <p>
@@ -20,21 +20,22 @@
         </select>
     </p>
     <p>
-        Menu Item Name: <input type="text" name="item_name_box">
+        Menu Item Name: <input type="text" name="item-name-box">
     </p>
     <p>
         Menu Item Description: <input type="text" name="item-description-box">
     </p>
     <p>
-        Menu Item Price: <input type="text" name="item-price-box">
+        Menu Item Price:  $<input type="text" name="item-price-box">
     </p>
     <p>
-        Menu Item Time: <input type="number" name="item-time-box">
+        Menu Item Time (min): <input type="number" name="item-time-box">
     </p>
     <p>
-        Add your new menu item! <input type="submit" value="create item">
+        <input type="submit" value="Add item to menu">
     </p>
 
 
 </form>
 
+{% endblock %} 

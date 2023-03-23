@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
-{% block title %} Welcome {% endblock %}
+{% block title %} Admin Portal - Lucy Ethiopian Restaurant {% endblock %}
 {% block navbar %}{% endblock %}
 
 
 
 {% block body %}
   {% if admin %}
-    <h1>Hi {{ admin.fname }}</h1>
+    <h2>Hi {{ admin.fname }}, welcome to your admin portal for Lucy Ethiopian Restaraunt</h2>
   {% endif %}
   
   <a href="/admin_logout">Logout</a>

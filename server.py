@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, session, redirect, get_flashed_messages
+from flask import Flask, render_template, request, flash, session, redirect
 from model import connect_to_db, db
 import crud
 
@@ -43,28 +43,31 @@ def create_admin_account():
     password = request.form.get("password")
     admin_pin = request.form.get("admin_pin")
 
-    if not fname or not lname or not email or not password or not admin_pin:
-        flash("Please fill in all boxes.")
+    if request.method == 'POST':
 
-        return render_template("create_admin.html", messages=get_flashed_messages())
-    
-    if admin_pin != "1996":
-        flash("Admin pin is incorrect. Please try again.")
+        if not fname or not lname or not email or not password or not admin_pin:
+            flash("Please fill in all boxes.")
+
+            return render_template("create_admin.html")
         
-        return render_template("create_admin.html")
+        if admin_pin != "1996":
+            flash("Admin pin is incorrect. Please try again.")
+            
+            return render_template("create_admin.html")
 
-    if crud.get_admin_by_email(email):
-        flash("An account with this email already exists, try logging in.")
+        if crud.get_admin_by_email(email):
+            flash("An account with this email already exists, try logging in.")
 
-        return render_template("admin_login.html")
-    
+            return render_template("admin_login.html")
+    else:
+        return render_template("create_admin.html") 
 
     admin = crud.create_admin(fname=fname, lname=lname, email=email, password=password)
     db.session.add(admin)
     db.session.commit()
     flash('Your new admin account has been created! Try logging in now.')
     
-    return render_template("admin_login.html", messages=get_flashed_messages())
+    return render_template("admin_login.html")
 
 
 
@@ -76,16 +79,22 @@ def login():
     print([email])
 
     admin = crud.get_admin_by_email(email)
-    if admin is None:
-        flash("Email or password is incorrect.")
-        return render_template("admin_login.html", messages=get_flashed_messages())
-    if admin.password != password:
-        flash("Email or password is incorrect.")
-        return render_template("admin_login.html", messages=get_flashed_messages())
+    if request.method == 'POST':
+        if not email or not password: 
+            flash("Please fill in all boxes.")
+            return render_template("admin_login.html")
+        if admin is None:
+            flash("There is not an account associated with this email.")
+            return render_template("admin_login.html")
+        if admin.password != password:
+            flash("Email or password is incorrect.")
+            return render_template("admin_login.html")
+        else:
+            session['admin_email'] = admin.email
+            flash(f"Welcome, {admin.fname}!")
+            return redirect("/admin_user")
     else:
-        session['admin_email'] = admin.email
-        flash(f"Welcome, {admin.fname}!")
-        return redirect("/admin_user")
+        return render_template("admin_login.html") 
 
 
 @app.route("/admin_user", methods=['GET', 'POST'])
@@ -124,19 +133,25 @@ def create_item():
     item_category = request.form.get("item-category-box")
     item_time = request.form.get("item-time-box")
 
-    if not item_name or not item_description or not item_price or not item_category or not item_time:
-        flash("Please fill in all boxes.")
+    if request.method == 'POST':
+   
+        if not item_name or not item_price or not item_category or not item_time:
+            flash("Please fill in all boxes.")
+            return render_template("create_item.html")
+        
+        else: 
+            menu_item = crud.create_menu_item(item_name=item_name, item_description=item_description, item_price=item_price, item_category=item_category, item_time=item_time)
+            db.session.add(menu_item)
+            db.session.commit()
+            flash('Your menu item has been added!')
+            return redirect ("/admin_user")
+    else:
         return render_template("create_item.html")
-    
-    else: 
-        menu_item = crud.create_menu_item(item_name=item_name, item_description=item_description, item_price=item_price, item_category=item_category, item_time=item_time)
-        db.session.add(menu_item)
-        db.session.commit()
-        flash('Your menu item has been added!')
-        return redirect ("/admin_user")
         
 
-
+@app.route("/edit_item", methods=['GET', 'POST'])
+def edit_item(): 
+  pass  
 
 
 

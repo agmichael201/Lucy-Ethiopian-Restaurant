@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
-{% block title %}Menu{% endblock %}
+{% block title %}Menu - Lucy Ethiopian Restaurant{% endblock %}
 
 {% block body %}
   <h1>Menu</h1>
 
 
     {% for category,category_items in all_items.items() %}
-      <h1>{{ category }}</h1>
+      <h2>{{ category }}</h2>
          {% for menu_item in category_items %}
-          <h2>{{ menu_item.item_name }}</h2>
+          <h4>{{ menu_item.item_name }}</h4>
             <p>{{ menu_item.item_description }}</p>
             <p>{{ menu_item.item_price}}</p>
           {% endfor %}

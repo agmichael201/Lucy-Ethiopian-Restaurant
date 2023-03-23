@@ -71,9 +71,219 @@
     },
     {
         "item_name": "Fish and Rice",
-        "item_description": "Pan-fried tilapia fillet with a side of seasoned rice. Served with a side.",
+        "item_description": "Pan-fried tilapia fillet with a side of seasoned rice. Served with a side salad.",
         "item_price": 14.99,
         "item_category": "Vegetarian",
         "item_time": 15  
+    },
+    {
+        "item_name": "Beef Lega Tibs",
+        "item_description": "Chunks of beef medium cooked with onion, garlic, jalapeño pepper, rosemary, and spiced butter. Served with a side salad",
+        "item_price": 16.99,
+        "item_category": "Beef",
+        "item_time": 15    
+    },
+    {
+        "item_name": "Kitfo",
+        "item_description": "Minced lean beef seasoned with mitmita, cardamom, spiced butter, and salt. Served raw or lightly cooked with a side of spinach and ayib.",
+        "item_price": 15.99,
+        "item_category": "Beef",
+        "item_time": 15
+    },
+    {
+        "item_name": "Kitfo Dulet",
+        "item_description": "Minced lean beef seasoned with mitmita, cardamom, spiced butter, and salt. Mixed with onion and jalapeño pepper.",
+        "item_price": 15.99,
+        "item_category": "Beef",
+        "item_time": 15
+    },
+    {
+        "item_name": "Special Zilzil",
+        "item_description": "Long strips of tender beef pan-fried with onion, green pepper, red pepper, and black pepper. Served with a side salad.",
+        "item_price": 17.99,
+        "item_category": "Beef",
+        "item_time": 15
+    },
+    {
+        "item_name": "Quanta Firfir",
+        "item_description": "Dried beef chunks cooked with onion, garlic, tomato sauce, ginger, and spiced butter. Mixed with injera and one boiled egg.",
+        "item_price": 16.99,
+        "item_category": "Beef",
+        "item_time": 15     
+    },
+    {
+        "item_name": "Lamb Lega Tibs",
+        "item_description": "Chunks of lamb medium cooked with onion, garlic, jalapeño pepper, rosemary, and spiced butter. Served with a side salad.",
+        "item_price":  16.99,
+        "item_category": "Lamb",
+        "item_time": 15
+    },
+    {
+        "item_name": "Yebeg Tibs", 
+        "item_description": "Chunks of lamb cooked with onion, jalapeño pepper, garlic, rosemary, and spiced butter. Served with a side salad.",
+        "item_price": 16.99,
+        "item_category": "Lamb",
+        "item_time": 15
+    },
+    {
+        "item_name": "Yebeg Key Wot", 
+        "item_description": "Lamb stew cooked with onion, garlic, tomato sauce, ginger, berbere, and spiced butter.",
+        "item_price": 15.99,
+        "item_category": "Lamb", 
+        "item_time": 15
+    },
+    {
+        "item_name": "Yebeg Alecha Wot",
+        "item_description": "Curried lamb cooked with onion, garlic, ginger, turmeric, and spiced butter.",
+        "item_price": 15.99,
+        "item_category": "Lamb",
+        "item_time": 15
+    },
+    {
+        "item_name": "Derek Tibs",
+        "item_description": "Tender lamb cubes sautéed in onion, garlic, jalapeño pepper, and traditional seasoning. Served with a side salad.",
+        "item_price": 17.99,
+        "item_category": "Lamb",
+        "item_time": 15  
+    },
+    {
+        "item_name": "Awaze Tibs",
+        "item_description": "Chunks of lamb cooked in onion, tomato sauce, awaze, garlic, rosemary, and spiced butter. Served with a side salad.",
+        "item_price": 17.99,
+        "item_category": "Lamb", 
+        "item_time": 15 
+    },
+    {
+        "item_name": "Misto",
+        "item_description": "Combination of Yebeg Key Wot and Yebeg Alecha Wot.",
+        "item_price": 16.99,
+        "item_category": "Lamb", 
+        "item_time": 15 
+    },
+    {
+        "item_name": "Kikil", 
+        "item_description": "Bone-in lamb cooked in stew with onion, garlic, green onion, jalapeño pepper, fresh tomatoes, ginger, and turmeric.",
+        "item_price": 16.99,
+        "item_category": "Lamb",
+        "item_time": 15  
+    },
+    {
+        "item_name": "Tibs Firfir", 
+        "item_description": "Lamb chunks cooked with onion, garlic, tomato sauce, and rosemary. Mixed with injera. Mild or spicy.",
+        "item_price": 16.99,
+        "item_category": "Lamb",
+        "item_time": 15
+    },
+    {
+        "item_name": "Doro Wot", 
+        "item_description": "Tender chicken leg cooked in homemade spicy stew with onion, garlic, ginger, tomato sauce, and spiced butter. Served with hard boiled egg and ayib.",
+        "item_price": 15.99, 
+        "item_category": "Chicken", 
+        "item_time": 15
+    }, 
+    {
+        "item_name": "Doro Tibs", 
+        "item_description": "Chunks of chicken breast cooked with onion, garlic, jalapeño pepper, tomato sauce, rosemary, and spiced butter. Served with a side salad.",
+        "item_price": 15.99, 
+        "item_category": "Chicken", 
+        "item_time": 15 
+    },
+    {
+        "item_name": "Coffee", 
+        "item_description": "", 
+        "item_price": 2.50, 
+        "item_category": "Drinks", 
+        "item_time": 5
+    }, 
+    {
+        "item_name": "Black Tea", 
+        "item_description": "",
+        "item_price": 2.00, 
+        "item_category": "Drinks", 
+        "item_time": 5     
+    }, 
+    {
+        "item_name": "Macchiato", 
+        "item_description": "",
+        "item_price": 3.00,
+        "item_category": "Drinks",
+        "item_time": 5
+    }, 
+    {
+        "item_name": "Cappuccino", 
+        "item_description": "",
+        "item_price": 3.50, 
+        "item_category": "Drinks", 
+        "item_time": 5    
+    },
+    {
+        "item_name": "Soda", 
+        "item_description": "",
+        "item_price": 2.00, 
+        "item_category": "Drinks", 
+        "item_time": 5          
+    },
+    {
+        "item_name": "Perrier", 
+        "item_description": "",
+        "item_price": 2.50, 
+        "item_category": "Drinks", 
+        "item_time": 5  
+    },
+    {
+        "item_name": "Bottled Water", 
+        "item_description": "",
+        "item_price": 1.50, 
+        "item_category": "Drinks", 
+        "item_time": 5  
+    },
+    {
+        "item_name": "Wine", 
+        "item_description": "Option of red or white",
+        "item_price": 6.00, 
+        "item_category": "Drinks", 
+        "item_time": 5  
+    },
+    {
+        "item_name": "Wine Bottle", 
+        "item_description": "Option of red or white",
+        "item_price": 24.00, 
+        "item_category": "Drinks", 
+        "item_time": 5  
+    },
+    {
+        "item_name": "Ethiopian Wine", 
+        "item_description": "",
+        "item_price": 7.00, 
+        "item_category": "Drinks", 
+        "item_time": 5  
+    },
+    {
+        "item_name": "Ethiopian Wine Bottle", 
+        "item_description": "",
+        "item_price": 28.00, 
+        "item_category": "Drinks", 
+        "item_time": 5  
+    },
+    {
+        "item_name": "Domestic Beer", 
+        "item_description": "",
+        "item_price": 4.00, 
+        "item_category": "Drinks", 
+        "item_time": 5  
+    },
+    {
+        "item_name": "Imported Beer", 
+        "item_description": "",
+        "item_price": 4.50, 
+        "item_category": "Drinks", 
+        "item_time": 5  
+    },
+    {
+        "item_name": "Ethiopian Beer", 
+        "item_description": "",
+        "item_price": 4.50, 
+        "item_category": "Drinks", 
+        "item_time": 5  
     }
 ]

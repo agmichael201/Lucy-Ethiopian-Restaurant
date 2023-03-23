@@ -2,7 +2,7 @@
 <html>
 
   <head>
-
+    
     <meta>
     <meta>
     <title>{% block title %}Lucy Ethiopian Restaurant{% endblock %}</title>
@@ -20,9 +20,10 @@
                   <a class="navbar-brand" href="#"></a>
               </div>
               <ul class="nav navbar-nav">
-                  <li class="active"><a href="#">Menu</a></li>
-                  <li><a href="#">Order Online</a></li>
-                  <li><a href="#">Contact Us</a></li>
+                  <li class="active"><a href="/">Home</a></li>
+                  <li><a href="/menu_items">Menu</a></li>
+                  <li><a href="">Order Online</a></li>
+                  <li><a href="/">Contact Us</a></li>
               </ul>
               </div>
           </nav>
@@ -33,20 +34,18 @@
       {% block body %}{% endblock %}
       </main>
 
+  <div class="container">
+
+    {% with messages = get_flashed_messages() %}
+      {% for message in messages %}
+        <div class="flash">{{ message }}</div>
+      {% endfor %}
+    {% endwith %}
+
+
+  </div>  
 
   </body>
-    <!-- {% block messages %}
 
-      {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          <ul>
-            {% for message in messages %}
-              <li>{{ message }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-      {% endwith %}
-    {% endblock %} -->
 
-  
 </html>
